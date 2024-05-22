@@ -19,7 +19,8 @@ const CareerChangePredictor = () => {
                 throw new Error('Error predicting salary');
             }
             const data = await response.json();
-            setPredictedSalary(data.predicted_salary);
+            const formattedSalary = Number(data.predicted_salary).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            setPredictedSalary(formattedSalary);
             setError('');
         } catch (error) {
             console.error('Error predicting salary:', error);
