@@ -16,6 +16,7 @@ import Login from './components/Login';
 import EmployeeSearch from './components/EmployeeSearch';
 import CareerChangePredictor from './components/CareerChangePredictor';
 
+// fetch data
 function App() {
   const [data, setData] = useState([]);
 
