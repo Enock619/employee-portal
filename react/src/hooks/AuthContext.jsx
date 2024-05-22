@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
-            setMessage("");
+            //setMessage("");
             console.log(message)
             //console.log(password)
             const response = await fetch(`${import.meta.env.VITE_EMPLOYEES_API_URL}/login`, {
