@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Employee from "./Employee";
 import Nav from "./Nav";
+import "../App.css"; // Import the CSS file
+
 
 const EmployeeSearch = (props) => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -37,7 +39,10 @@ const EmployeeSearch = (props) => {
             </div>
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
                 {props.data.filter(filterEmployees).map((employee) => (
-                    <Employee key={employee._id} data={employee} />
+                    <div key={employee._id} className="employee-card">
+                        {/* Removed the img tag from here */}
+                        <Employee data={employee} />
+                    </div>
                 ))}
             </div>
         </>
