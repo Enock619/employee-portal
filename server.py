@@ -1,7 +1,11 @@
+#pip install flask-cors before running this script
+
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from model_trainer import ModelTrainer
 
 app = Flask(__name__)
+CORS(app)  # This will enable CORS for all routes
 
 # Instantiate ModelTrainer
 trainer = ModelTrainer()
