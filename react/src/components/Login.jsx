@@ -1,10 +1,11 @@
 import React from "react";
 
-const Login = () =>{
+const Login = () => {
 
-   return (
-            <>
-            </>
+    return (
+        <>
+            <h1>Login</h1>
+        </>
     )
 }
 
