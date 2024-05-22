@@ -39,7 +39,7 @@ function App() {
   return (
     <Router>
          <Routes>
-          <Route exact path='/' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/search' element={<EmployeeSearch data={data}/>} />
           <Route path='/career' element={<CareerChangePredictor />} />
