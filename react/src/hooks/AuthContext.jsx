@@ -9,6 +9,8 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (username, password) => {
         try {
+            console.log(username)
+            console.log(password)
             const response = await fetch(`${import.meta.env.VITE_EMPLOYEES_API_URL}/login`, {
                 method: 'POST',
                 headers: {
@@ -17,7 +19,8 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify({ username, password }),
             });
             const data = await response.json();
-            if (data.uid) {
+            console.log("DATA", {data})
+            if (data._id) {
                 setUser({
                     username,
                     _id : data._id,
