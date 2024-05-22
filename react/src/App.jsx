@@ -41,7 +41,7 @@ function App() {
     <Router>
          <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
+          {/* <Route path='/login' element={<Login />} /> */}
           <Route path='/search' element={<EmployeeSearch data={data}/>} />
           <Route path='/career' element={<CareerChangePredictor />} />
 
