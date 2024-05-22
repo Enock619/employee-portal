@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 import {
   BrowserRouter as Router,
   Route,
@@ -40,6 +39,7 @@ function App() {
   }, []);
 
   return (
+      <section className='container-fluid'>
     <Router>
       <AuthProvider>
          <Routes>
@@ -51,6 +51,7 @@ function App() {
           </Routes>
       </AuthProvider>
     </Router>
+    </section>
   )
 }
 

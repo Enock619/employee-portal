@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Nav from "./Nav";
 
 const CareerChangePredictor = () => {
     const [jobRole, setJobRole] = useState('');
@@ -30,7 +32,8 @@ const CareerChangePredictor = () => {
     }
 
     return (
-        <>
+        <>   
+            <Nav/>
             <h1>Career Change</h1>
             <div>
                 <input type="text" placeholder="Job Role" value={jobRole} onChange={(e) => setJobRole(e.target.value)} />
