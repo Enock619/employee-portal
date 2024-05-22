@@ -69,4 +69,17 @@
 
 h1 {
   padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* Navbar CSS */
+.navbar-nav .nav-link.active {
+  background-color: #343a40; /* Dark gray background color for whatever page we're on */
+  border-radius: 0.25rem; /* Add some border-radius for rounded corners */
+  padding: 0.5rem 1rem; /* Adjust padding for better appearance */
+}
+
+.navbar {
+  border-radius: 10px; /* Add rounded corners to the navbar */
+  padding-bottom: 10px; /* Add some space at the bottom of the navbar */
 }
