@@ -35,13 +35,15 @@ app.post('/api/employees/login', async (req, res) => {
         const user = await employeeCollection.findOne({username: username})
         console.log(user)
         if(!user){
-            return res.status(401).send("User does not exist");
+            //res.json("User does not exist")
+            return res.status(401).json({ message: 'User does not exist'});
         }
-
-        if(password !== user.password){
-            return res.status(401).send("Wrong Credential")
+        else if (password !== user.password){
+            //res.json("Wrong Credential")
+            return res.status(401).json({ message: 'Wrong Credential'})
+        } else {
+            res.json(user);
         }
-        res.json(user);
 
     } catch (err) {
         console.error(err);
