@@ -1,21 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import Employee from "./Employee";
 import Nav from "./Nav";
+
 const EmployeeSearch = (props) => {
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Function to handle search query change
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    // Function to filter employees based on search query
+    const filterEmployees = (employee) => {
+        const { name, phone, job_role, work_location } = employee;
+        const normalizedQuery = searchQuery.toLowerCase().trim();
+        return (
+            name.toLowerCase().includes(normalizedQuery) ||
+            phone.includes(normalizedQuery) ||
+            job_role.toLowerCase().includes(normalizedQuery) ||
+            work_location.toLowerCase().includes(normalizedQuery)
+        );
+    };
 
     return (
         <>
-        <Nav/>
-        <h1>Search</h1>
-        <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-            {
-                props.data.map((employee) => (
+            <Nav />
+            <h1>Employee Search</h1>
+            <div className="container">
+                <input
+                    type="text"
+                    placeholder="Search employees..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className="form-control"
+                />
+            </div>
+            <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+                {props.data.filter(filterEmployees).map((employee) => (
                     <Employee key={employee._id} data={employee} />
-                ))
-            }
-        </div>
+                ))}
+            </div>
         </>
-    )
-}
+    );
+};
 
 export default EmployeeSearch;
