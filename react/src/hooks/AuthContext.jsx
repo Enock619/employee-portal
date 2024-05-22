@@ -20,7 +20,9 @@ export const AuthProvider = ({ children }) => {
             if (data.uid) {
                 setUser({
                     username,
-                    uid: data.uid // Storing the uid returned from the server
+                    _id : data._id,
+                    employee_id: data.employee_id, // Storing the uid returned from the server
+                    manager_id: data.manager_id
                 });
             } else {
                 throw new Error(data.message || 'Login failed');

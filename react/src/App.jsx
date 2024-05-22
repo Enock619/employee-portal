@@ -9,6 +9,8 @@ import {
   Routes,
   Link
 } from "react-router-dom";
+import { AuthProvider } from "./hooks/AuthContext";
+import RequireAuth from "./components/RequireAuth";
 
 // import components 
 import Employee from './components/Employee'
@@ -41,14 +43,15 @@ function App() {
   return (
       
     <Router>
-          <Nav />
+      <AuthProvider>
          <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/login' element={<Login />} /> */}
+          <Route path='/login' element={<Login />} />
           <Route path='/search' element={<EmployeeSearch data={data}/>} />
           <Route path='/career' element={<CareerChangePredictor />} />
 
-          </Routes> 
+          </Routes>
+      </AuthProvider>
     </Router>
   )
 }
