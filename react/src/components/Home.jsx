@@ -1,9 +1,12 @@
 import React from "react";
+import Nav from "./Nav";
+
 
 const Home = () => {
 
     return (
         <>  
+           <Nav />
             <div>
                 <h1>Welcome to the Employee Directory</h1>
                 <div>
@@ -18,7 +21,7 @@ const Home = () => {
                          Predict your potential salary based on your desired location and job role. Simply input
                           your preferred job title and the location you're interested in, and let our tool provide 
                           you with valuable insights into salary expectations, helping you make informed career decisions.
-                          </p>
+                    </p>
                 </div>
             </div>
         </>
