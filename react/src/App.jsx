@@ -31,7 +31,7 @@ function App() {
             const json_response = await response.json();
             setData(json_response); // assign JSON response to the data variable.
         } catch (error) {
-            console.error('Error fetching socks:', error);
+            console.error('Error fetching employees:', error);
         }
     };
 

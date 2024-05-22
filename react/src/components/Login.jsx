@@ -6,7 +6,7 @@ const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth();
+    const { login, message } = useAuth();
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
@@ -43,6 +43,9 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
             </form>
+            <div>
+                {message}
+            </div>
         </div>
     );
 }
