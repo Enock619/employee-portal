@@ -4,7 +4,7 @@ const EmployeeSearch = () => {
 
     return (
         <>
-
+        <h1>Search</h1>
         </>
     )
 }
