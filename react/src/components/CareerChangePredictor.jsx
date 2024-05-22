@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 
@@ -5,6 +6,7 @@ const CareerChangePredictor = () => {
     const [jobRole, setJobRole] = useState('');
     const [location, setLocation] = useState('');
     const [predictedSalary, setPredictedSalary] = useState(null);
+    const [error, setError] = useState('');
 
     const predictSalary = async () => {
         try {
@@ -20,8 +22,11 @@ const CareerChangePredictor = () => {
             }
             const data = await response.json();
             setPredictedSalary(data.predicted_salary);
+            setError('');
         } catch (error) {
             console.error('Error predicting salary:', error);
+            setError('Error predicting salary. Please try again later.');
+            setPredictedSalary(null);
         }
     }
 
@@ -34,6 +39,7 @@ const CareerChangePredictor = () => {
                 <input type="text" placeholder="Location" value={location} onChange={(e) => setLocation(e.target.value)} />
                 <button onClick={predictSalary}>Predict Salary</button>
             </div>
+            {error && <p>{error}</p>}
             {predictedSalary && <p>Predicted Salary: ${predictedSalary}</p>}
         </>
     )

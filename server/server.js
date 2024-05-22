@@ -28,19 +28,20 @@ app.get('/api/employees', async (req, res) => {
     }
 });
 
-app.post('/login', async (req, res) => {
+app.post('/api/employees/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log("BODY", req.body)
     try {
-        
-        const user = await db.employeeCollection.find({username: username})
+        const user = await employeeCollection.findOne({username: username})
         console.log(user)
         if(!user){
             return res.status(401).send("User does not exist");
         }
+
         if(password !== user.password){
             return res.status(401).send("Wrong Credential")
         }
-        res.json(`Welcome back ${username}`);
+        res.json(user);
 
     } catch (err) {
         console.error(err);
