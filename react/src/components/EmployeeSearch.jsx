@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Employee from "./Employee";
 import Nav from "./Nav";
-import "../App.css"; // Import the CSS file
+import "../EmployeeSearch.css"; // Import the CSS file
 
 
 const EmployeeSearch = (props) => {
