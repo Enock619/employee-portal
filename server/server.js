@@ -17,6 +17,7 @@ const client = await MongoClient.connect(url);
 const db = client.db(dbName);
 const employeeCollection = db.collection(process.env.MONGO_DB_COLLECTION_EMPLOYEES);
 
+// Variables to store user information on the server after logging in
 let UserID = ""
 let UserJobRole = ""
 
@@ -26,12 +27,11 @@ app.get('/api/employees', async (req, res) => {
         const result = await employeeCollection.find({}).toArray();
         // anonymize salary for unauthorized people
         for (let i = 0; i < result.length; i++) {
-            //let cur = result[i]
-            console.log(result[i].employee_id)
+            //console.log(result[i].employee_id)
             if(UserJobRole !== 'HR'){
                 if(UserID !== result[i].employee_id && UserID !== result[i].manager_id){
                     result[i].salary = "******"
-                    console.log(result[i].salary)
+                    //console.log(result[i].salary)
                 }
             }
         }
