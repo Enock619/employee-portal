@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
-import "../Career.css"; // Import the CSS file
 
 const CareerChangePredictor = () => {
     const [jobRole, setJobRole] = useState('');
