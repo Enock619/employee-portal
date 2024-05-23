@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import "../Login.css"
 //import { fetchData } from App.jsx
 
 const Login = ({employees, fetchData}) => {
@@ -19,7 +20,9 @@ const Login = ({employees, fetchData}) => {
     };
 
     return (
+        <section className='login-container'>
         <div className="container">
+            <h1>Login</h1>
             <form onSubmit={handleLogin} className="mt-5">
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
@@ -49,6 +52,7 @@ const Login = ({employees, fetchData}) => {
                 {message}
             </div>
         </div>
+        </section>
     );
 }
 
