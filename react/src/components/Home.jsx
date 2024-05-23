@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import Nav from "./Nav";
 import Employee from "./Employee";
 import "../Home.css"; // Import custom CSS file
@@ -44,6 +46,21 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            {/* Footer */}
+            <footer className="footer">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                            <h2 style={{ color: "white" }}>Contact Us</h2>
+                            <ul className="list-inline">
+                                <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faFacebook} style={{ fontSize: "2rem", color: "white" }} /></a></li>
+                                <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faTwitter} style={{ fontSize: "2rem", color: "white" }} /></a></li>
+                                <li className="list-inline-item"><a href="#"><FontAwesomeIcon icon={faInstagram} style={{ fontSize: "2rem", color: "white" }} /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };
