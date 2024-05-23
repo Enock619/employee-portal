@@ -21,24 +21,22 @@ import CareerChangePredictor from './components/CareerChangePredictor';
 
 // fetch data
 function App() {
-  const [data, setData] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-            const response = await fetch(import.meta.env.VITE_EMPLOYEES_API_URL);
-            if (!response.ok) {
-                throw new Error('Data could not be fetched!');
-            }
-            const json_response = await response.json();
-            setData(json_response); // assign JSON response to the data variable.
-        } catch (error) {
-            console.error('Error fetching employees:', error);
-        }
-    };
 
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+      try {
+          const response = await fetch(import.meta.env.VITE_EMPLOYEES_API_URL);
+          if (!response.ok) {
+              throw new Error('Data could not be fetched!');
+          }
+          const json_response = await response.json();
+          setEmployees(json_response); // assign JSON response to the data variable.
+      } catch (error) {
+          console.error('Error fetching employees:', error);
+      }
+  };
+
 
   return (
       <section className='container-fluid'>
@@ -46,8 +44,8 @@ function App() {
       <AuthProvider>
          <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/search' element={<RequireAuth><EmployeeSearch data={data}/> </RequireAuth>} />
+          <Route path='/login' element={<Login employees={employees} fetchData={fetchData}/>} />
+          <Route path='/search' element={<RequireAuth><EmployeeSearch employees={employees} /> </RequireAuth>} />
           <Route path='/career' element={<CareerChangePredictor />} />
 
           </Routes>
