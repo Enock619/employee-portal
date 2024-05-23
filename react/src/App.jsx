@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from "./hooks/AuthContext";
 import RequireAuth from "./components/RequireAuth";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // import components 
 import Employee from './components/Employee'
@@ -45,7 +47,7 @@ function App() {
          <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/search' element={<EmployeeSearch data={data}/>} />
+          <Route path='/search' element={<RequireAuth><EmployeeSearch data={data}/> </RequireAuth>} />
           <Route path='/career' element={<CareerChangePredictor />} />
 
           </Routes>

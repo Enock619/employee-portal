@@ -21,6 +21,7 @@ const employeeCollection = db.collection(process.env.MONGO_DB_COLLECTION_EMPLOYE
 app.get('/api/employees', async (req, res) => {
     try {
         const result = await employeeCollection.find({}).toArray();
+        // anonymize salary for unauthorized people
         res.json(result);
     } catch (err) {
         console.error("Error:", err);
