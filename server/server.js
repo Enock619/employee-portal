@@ -18,6 +18,7 @@ const db = client.db(dbName);
 const employeeCollection = db.collection(process.env.MONGO_DB_COLLECTION_EMPLOYEES);
 
 let UserID = ""
+let UserJobRole = ""
 
 // Get request to fetch employees from MongoDB
 app.get('/api/employees', async (req, res) => {
@@ -27,9 +28,11 @@ app.get('/api/employees', async (req, res) => {
         for (let i = 0; i < result.length; i++) {
             //let cur = result[i]
             console.log(result[i].employee_id)
-            if(!UserID === result[i].employee_id){
-                result[i].salary = "******"
-                console.log(result[i].salary)
+            if(UserJobRole !== 'HR'){
+                if(UserID !== result[i].employee_id && UserID !== result[i].manager_id){
+                    result[i].salary = "******"
+                    console.log(result[i].salary)
+                }
             }
         }
         res.json(result);
@@ -55,6 +58,7 @@ app.post('/api/employees/login', async (req, res) => {
             return res.status(401).json({ message: 'Wrong Credential'})
         } else {
             UserID = user.employee_id;
+            UserJobRole = user.job_role;
             console.log(UserID)
             res.json(user);
             
