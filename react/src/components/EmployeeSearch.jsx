@@ -4,7 +4,7 @@ import Nav from "./Nav";
 import "../EmployeeSearch.css"; // Import the CSS file
 
 
-const EmployeeSearch = (props) => {
+const EmployeeSearch = ({employees, fetchData}) => {
     const [searchQuery, setSearchQuery] = useState('');
 
     // Function to handle search query change
@@ -38,7 +38,7 @@ const EmployeeSearch = (props) => {
                 />
             </div>
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-                {props.data.filter(filterEmployees).map((employee) => (
+                {employees.filter(filterEmployees).map((employee) => (
                     <div key={employee._id} className="employee-card">
                         {/* Removed the img tag from here */}
                         <Employee data={employee} />
