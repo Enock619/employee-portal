@@ -45,7 +45,7 @@ function App() {
     <Router>
       <AuthProvider>
          <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home data={data} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/search' element={<RequireAuth><EmployeeSearch data={data}/> </RequireAuth>} />
           <Route path='/career' element={<CareerChangePredictor />} />

@@ -1,0 +1,25 @@
+.home-img{
+    height: 20vh;
+
+}
+.img-container{
+    display: flex;
+    justify-content: space-between;
+}
+.paw{
+   margin: 30px;
+   transform: rotate(25deg);
+}
+
+.title{
+    text-align: center;
+    padding: 1px;
+    font-weight: 400;
+    margin-top: 20px;
+    
+}
+
+p{
+    padding: .5px;
+    margin-top: 20px;
+}
