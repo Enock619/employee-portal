@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
                 });
             } else {
                 //console.log("error")
-                setMessage("Error logging in");
+                setMessage("Wrong username or password");
                 throw new Error(data.message || 'Login failed');
             }
         } catch (error) {
