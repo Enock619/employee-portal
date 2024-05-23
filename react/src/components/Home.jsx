@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Employee from "./Employee";
-import { Carousel } from "react-bootstrap"; // Import Carousel from React Bootstrap
 
 const Home = () => {
     const [employees, setEmployees] = useState([]);
@@ -37,6 +36,37 @@ const Home = () => {
         <>
             <Nav />
             <div className="container">
+                {/* Carousel */}
+                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+                    <div className="carousel-inner">
+                        {/* Replace these placeholders with actual images and captions */}
+                        <div className="carousel-item active">
+                            <img src="https://placekitten.com/800/400" className="d-block w-100" alt="Cat 1" />
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                        <div className="carousel-item">
+                            <img src="https://placekitten.com/800/401" className="d-block w-100" alt="Cat 2" />
+                            <div className="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                        {/* Add more carousel items as needed */}
+                    </div>
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                {/* Page content */}
                 <h1>Welcome to the Feline Employee Directory</h1>
                 <div>
                 <p>Welcome to PurrfectTemp - where feline finesse meets human needs! At PurrfectTemp, 
@@ -61,16 +91,9 @@ const Home = () => {
                     life fur-tastic!</p>
 
                 </div>
-
-                {/* Carousel with featured employees */}
-                <Carousel className="mt-5">
-                    {featuredEmployees.map((employee) => (
-                        <Carousel.Item key={employee._id}>
-                            <Employee data={employee} />
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
             </div>
+            {/* Import Bootstrap JavaScript at the bottom */}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
         </>
     );
 };
