@@ -1,58 +1,51 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link
-} from "react-router-dom";
-import { AuthProvider } from "./hooks/AuthContext";
-import RequireAuth from "./components/RequireAuth";
+// App.jsx
+
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './hooks/AuthContext';
+import RequireAuth from './components/RequireAuth';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'; // Import your custom CSS file
 
-
-// import components 
-import Employee from './components/Employee'
+// Import components
+import Employee from './components/Employee';
 import Home from './components/Home';
 import Login from './components/Login';
 import EmployeeSearch from './components/EmployeeSearch';
 import CareerChangePredictor from './components/CareerChangePredictor';
 
-// fetch data
 function App() {
   const [employees, setEmployees] = useState([]);
 
-
   const fetchData = async () => {
-      try {
-          const response = await fetch(import.meta.env.VITE_EMPLOYEES_API_URL);
-          if (!response.ok) {
-              throw new Error('Data could not be fetched!');
-          }
-          const json_response = await response.json();
-          setEmployees(json_response); // assign JSON response to the data variable.
-      } catch (error) {
-          console.error('Error fetching employees:', error);
+    try {
+      const response = await fetch(import.meta.env.VITE_EMPLOYEES_API_URL);
+      if (!response.ok) {
+        throw new Error('Data could not be fetched!');
       }
+      const json_response = await response.json();
+      setEmployees(json_response); // assign JSON response to the data variable.
+    } catch (error) {
+      console.error('Error fetching employees:', error);
+    }
   };
 
+  useEffect(() => {
+    fetchData(); // Fetch data on component mount
+  }, []);
 
   return (
-      <section className='container-fluid'>
     <Router>
       <AuthProvider>
-         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login employees={employees} fetchData={fetchData}/>} />
-          <Route path='/search' element={<RequireAuth><EmployeeSearch employees={employees} /> </RequireAuth>} />
-          <Route path='/career' element={<CareerChangePredictor />} />
-
-          </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login employees={employees} fetchData={fetchData} />} />
+          <Route path="/search" element={<RequireAuth><EmployeeSearch employees={employees} /></RequireAuth>} />
+          <Route path="/career" element={<CareerChangePredictor />} />
+        </Routes>
       </AuthProvider>
     </Router>
-    </section>
-  )
+  );
 }
 
-export default App
+export default App;

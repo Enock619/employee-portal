@@ -1,11 +1,17 @@
 /* Navbar CSS */
-.navbar-nav .nav-link.active {
-    background-color: #343a40; /* Dark gray background color for whatever page we're on */
+.navbar {
+    background-color: #617a7a !important; /* background color for the navbar */
+    border-radius: 10px; /* Add rounded corners to the navbar */
+    padding-bottom: 10px; /* Add some space at the bottom of the navbar */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #f8f9fa; /* Lighter text color for nav links */
+  }
+  
+  .navbar-nav .nav-link.active {
+    background-color: #8eadad; /* Light background color for the currently selected page */
     border-radius: 0.25rem; /* Add some border-radius for rounded corners */
     padding: 0.5rem 1rem; /* Adjust padding for better appearance */
   }
   
-  .navbar {
-    border-radius: 10px; /* Add rounded corners to the navbar */
-    padding-bottom: 10px; /* Add some space at the bottom of the navbar */
-  }
