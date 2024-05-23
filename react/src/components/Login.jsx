@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "../Login.css"
 //import { fetchData } from App.jsx
 
-const Login = ({employees, fetchData}) => {
+const Login = ({ employees, fetchData }) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -21,37 +21,38 @@ const Login = ({employees, fetchData}) => {
 
     return (
         <section className='login-container'>
-        <div className="container">
-            <h1>Login</h1>
-            <form onSubmit={handleLogin} className="mt-5">
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="username"
-                        placeholder="Enter username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
+            <div className="container">
+                <h1>Login</h1>
+                <form onSubmit={handleLogin} className="mt-5">
+                    <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="username"
+                            placeholder="Enter username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            id="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Login</button>
+                </form>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{message}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-            </form>
-            <div>
-                {message}
             </div>
-        </div>
         </section>
     );
 }

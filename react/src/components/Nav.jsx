@@ -23,6 +23,7 @@ const Nav = () => {
                     </ul>
                 </div>
             </div>
+            
         </nav>
     )
 }

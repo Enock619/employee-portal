@@ -20,3 +20,13 @@ body {
 .read-the-docs {
   color: #888;
 }
+p{
+  font-family: 'Montserrat', sans-serif;
+}
+.card-body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+  font-family: 'Lora', serif;
+}
