@@ -1,0 +1,17 @@
+/* Custom CSS */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.img-fluid {
+    height: 100%;
+    width: auto;
+}
