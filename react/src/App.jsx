@@ -43,9 +43,9 @@ function App() {
     <Router>
       <AuthProvider>
          <Routes>
-          <Route path='/' element={<Home data={data} />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/search' element={<RequireAuth><EmployeeSearch data={data}/> </RequireAuth>} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login employees={employees} fetchData={fetchData}/>} />
+          <Route path='/search' element={<RequireAuth><EmployeeSearch employees={employees} /> </RequireAuth>} />
           <Route path='/career' element={<CareerChangePredictor />} />
 
           </Routes>
