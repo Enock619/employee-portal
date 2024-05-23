@@ -11,7 +11,24 @@
     height: 100%;
 }
 
-.img-fluid {
+.img-container,
+.img-container-2 {
     height: 100%;
-    width: auto;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-container {
+    background-image: url("https://external-preview.redd.it/vMG3DNe--UssYbp5FOSO9CUADsLVfqPxBiYulgN7kjc.png?auto=webp&s=dd126fd25766bc950fc394dcc3b66345a2f2ddfe");
+}
+
+.img-container-2 {
+    background-image: url("https://media.istockphoto.com/id/1334070091/photo/pensive-bengal-cat-in-a-blue-tie-near-a-laptop-and-a-diary-sits-home-office-remote-work.jpg?s=612x612&w=0&k=20&c=vBp3dCwUVKXDxga-dESreruuLN24rAZYNr7Asc6KdtI=");
+}
+
+/* Added styles to remove horizontal padding */
+.img-column {
+    padding-left: 0;
+    padding-right: 0;
 }
