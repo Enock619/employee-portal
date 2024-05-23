@@ -48,9 +48,8 @@ const Login = ({ employees, fetchData }) => {
                     </div>
                     <button type="submit" className="btn btn-primary">Login</button>
                 </form>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>{message}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div>
+                    {message}
                 </div>
             </div>
         </section>
