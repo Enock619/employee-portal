@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from "./hooks/AuthContext";
 import RequireAuth from "./components/RequireAuth";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // import components 
 import Employee from './components/Employee'
