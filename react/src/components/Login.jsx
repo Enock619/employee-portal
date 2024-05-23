@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
+//import { fetchData } from App.jsx
 
-const Login = () => {
+const Login = ({employees, fetchData}) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { login, message } = useAuth();
+    const { login, message, user } = useAuth();
     const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
         await login(username, password);
         console.log(username, password);
+        fetchData();
         navigate('/search');
     };
 

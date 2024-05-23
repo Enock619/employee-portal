@@ -17,12 +17,26 @@ const client = await MongoClient.connect(url);
 const db = client.db(dbName);
 const employeeCollection = db.collection(process.env.MONGO_DB_COLLECTION_EMPLOYEES);
 
+let UserID = ""
+let UserJobRole = ""
+
 // Get request to fetch employees from MongoDB
 app.get('/api/employees', async (req, res) => {
     try {
         const result = await employeeCollection.find({}).toArray();
         // anonymize salary for unauthorized people
+        for (let i = 0; i < result.length; i++) {
+            //let cur = result[i]
+            console.log(result[i].employee_id)
+            if(UserJobRole !== 'HR'){
+                if(UserID !== result[i].employee_id && UserID !== result[i].manager_id){
+                    result[i].salary = "******"
+                    console.log(result[i].salary)
+                }
+            }
+        }
         res.json(result);
+        // console.log(result[1])
     } catch (err) {
         console.error("Error:", err);
         res.status(500).send("Hmmm, something smells... No bananas for you! ☹");
@@ -43,7 +57,11 @@ app.post('/api/employees/login', async (req, res) => {
             //res.json("Wrong Credential")
             return res.status(401).json({ message: 'Wrong Credential'})
         } else {
+            UserID = user.employee_id;
+            UserJobRole = user.job_role;
+            console.log(UserID)
             res.json(user);
+            
         }
 
     } catch (err) {
